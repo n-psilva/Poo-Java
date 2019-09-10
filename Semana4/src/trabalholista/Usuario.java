@@ -11,7 +11,7 @@ public class Usuario {
 	// metodo construtor
 	public Usuario(){
 		setSenha("OOP");
-		tweets = new ArrayList<Tweet>();
+		this.tweets = new ArrayList<Tweet>();
 	}
 	
 	
@@ -31,7 +31,7 @@ public class Usuario {
 	
      public void addTweet(Tweet novotw){
 		
-		tweets.add(novotw);
+		this.tweets.add(novotw);
 		System.out.println("Tweet inserido!");
 	}
 	
