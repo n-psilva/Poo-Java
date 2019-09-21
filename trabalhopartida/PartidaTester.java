@@ -14,7 +14,7 @@ public class PartidaTester {
 	    Time v = new Time();
 
       	    Scanner leitura = new Scanner(System.in);
-            int aux;
+            int aux = 0;
             
 		
 
@@ -33,11 +33,10 @@ public class PartidaTester {
                 
                 System.out.println("continuar partida?");
                 String resp = leitura.next();
-                if(!resp.equalsIgnoreCase("sim")){
-	         aux = 0;
+                if(resp.equalsIgnoreCase("sim")){
+	         aux = 1;
                  }
-                else
-                    aux = 1;
+               
             }while(aux == 1);
 
 		v.listar();
