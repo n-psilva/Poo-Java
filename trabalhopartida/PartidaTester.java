@@ -33,11 +33,11 @@ public class PartidaTester {
                 
                 System.out.println("Deseja realizar outra partida?");
                 String resp = leitura.next();
-                if(resp.equalsIgnoreCase("sim")){
+                if(resp.equalsIgnoreCase("nao")){
 	         aux = 1;
                  }
                
-            }while(aux == 1);
+            }while(aux != 1);
 
 		v.listar();
 
