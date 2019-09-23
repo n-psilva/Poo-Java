@@ -31,7 +31,7 @@ public class PartidaTester {
 		p1.mostraResultado();
 		p1.finalizarPartida();
                 
-                System.out.println("continuar partida?");
+                System.out.println("Deseja realizar outra partida?");
                 String resp = leitura.next();
                 if(resp.equalsIgnoreCase("sim")){
 	         aux = 1;
