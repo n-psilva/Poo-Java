@@ -66,7 +66,7 @@ public class Retangulo implements IShape, IShow {
 	public void imprimir() {
 
 		// TODO Auto-generated method stub
-		System.out.println("Area retangulo =" + getArea());
+		System.out.println("Area retangulo = " + getArea());
 		System.out.println("Perimetro retangulo = " + getPerimetro());
 	}
 	
