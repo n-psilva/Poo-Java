@@ -35,8 +35,12 @@ public class IShapeTester {
         catch(InputMismatchException e)
            {
                System.out.println("Digite apenas numeros!");
-               ler.nextLine();
+               
            }
+        finally
+	{
+		ler.nextLine();
+	}
 
         }while( aux == true );
        
