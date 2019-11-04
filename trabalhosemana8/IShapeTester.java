@@ -35,7 +35,6 @@ public class IShapeTester {
         catch(InputMismatchException e)
            {
                System.out.println("Digite apenas numeros!");
-               
            }
         finally
 	{
