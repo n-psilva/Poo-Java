@@ -35,4 +35,30 @@ public class AlunoController {
 		return alunos;
 	}
 	
+public void delete(Aluno aluno){
+		
+		try{
+			AlunoDAO dao = new AlunoDAO();
+			dao.delete(aluno);
+		}
+		finally{
+			System.out.println("Aluno deletado!");
+		}
+			
+	}
+
+public void update(Aluno aluno){
+	
+	try{
+		AlunoDAO dao = new AlunoDAO();
+		dao.update(aluno);
+	}
+	finally{
+		System.out.println("Fim da atualização!");
+	}
+		
+}
+
+	
+	
 }

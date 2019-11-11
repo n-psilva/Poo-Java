@@ -76,6 +76,64 @@ public class AlunoDAO {
 		return alunos;
 	
 	}
+	
+	public void delete(Aluno aluno){
+		
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "delete from aluno where matricula =?";
+		
+		try {
+			stmt = con.prepareStatement(sql);
+		    stmt.setString(1, aluno.getMatricula());
+		
+		    stmt.executeUpdate();
+		    System.out.println("Aluno excluido com sucesso!");
+		
+		}
+		catch(SQLException e){
+			
+			e.printStackTrace();
+			System.out.println("Erro ao tentar excluir aluno.");
+		}
+		finally{
+			
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+		
+		}
+	
+	public void update(Aluno aluno){
+		
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		String sql = "update aluno set nome = ? where matricula = ? ";
+		
+		try {
+			stmt = con.prepareStatement(sql);
+			
+			stmt.setString(1, aluno.getNome());
+			stmt.setString(2, aluno.getMatricula());
+			
+		    stmt.executeUpdate();
+		    System.out.println("Aluno alterado com sucesso!");
+		
+		}
+		catch(SQLException e){
+			
+			e.printStackTrace();
+			System.out.println("Erro ao tentar alterar aluno.");
+		}
+		finally{
+			
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+		
+		}
+	
+	
 }
 	
 		
