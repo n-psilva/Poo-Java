@@ -5,8 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
+
+import javax.swing.JOptionPane;
 
 import jdbc.ConnectionFactory;
 import model.Aviao;
@@ -51,7 +52,7 @@ public class AviaoDAO {
 			PreparedStatement stmt = null;
 			ResultSet rs = null;
 			
-			String sql = " select idAviao, Qtd_Vagas from aviao";
+			String sql = " select idAviao, modelo, Qtd_Vagas  from aviao";
 			
 		
 			try{
@@ -59,7 +60,8 @@ public class AviaoDAO {
 				rs = stmt.executeQuery();
 				
 				while(rs.next()){
-					JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\nQTD Vagas: "+ rs.getString(2)+ "\n" );
+					JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\\nModelo: "+ rs.getString(2)+ "\\nQTD Vagas: "
+							+rs.getString(3) );
 				
 				}
 			}
