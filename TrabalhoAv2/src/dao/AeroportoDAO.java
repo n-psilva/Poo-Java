@@ -45,26 +45,21 @@ public class AeroportoDAO {
 		}
 		
 		
-		public List<Aeroporto> readAll(){
+		public void readAll(){
 			
 			Connection con = ConnectionFactory.getConnection();
 			PreparedStatement stmt = null;
 			ResultSet rs = null;
 			
 			String sql = " select idAeroporto, situacao from aeroporto";
-			List<Aeroporto> aero = new ArrayList<Aeroporto>();
 		
 			try{
 				stmt = con.prepareStatement(sql);
 				rs = stmt.executeQuery();
 				
 				while(rs.next()){
-					
-					Aeroporto aeroporto = new Aeroporto();
-					aeroporto.setIdAeroporto(rs.getString("idAeroporto"));
-					aeroporto.setSituacao(rs.getString("situacao"));
-					
-					aero.add(aeroporto);
+					JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\nSituação: "+ rs.getString(2)+ "\n" );
+	
 				}
 			}
 			catch(SQLException e){
@@ -77,7 +72,7 @@ public class AeroportoDAO {
 				
 			}
 			
-			return aero;
+			
 		
 		}
 		
