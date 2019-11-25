@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
+
+import javax.swing.JOptionPane;
 
 import jdbc.ConnectionFactory;
 import model.Aeroporto;
-import javax.swing.JOptionPane;
+
 
 public class AeroportoDAO {
 		
@@ -51,14 +52,15 @@ public class AeroportoDAO {
 			PreparedStatement stmt = null;
 			ResultSet rs = null;
 			
-			String sql = " select idAeroporto, situacao from aeroporto";
+			String sql = " select idAeroporto, nome_Aero, situacao from aeroporto";
 		
 			try{
 				stmt = con.prepareStatement(sql);
 				rs = stmt.executeQuery();
 				
 				while(rs.next()){
-					JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\nSituação: "+ rs.getString(2)+ "\n" );
+					JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\nNome: "+ rs.getString(2)+
+							"\nSituação: "+ rs.getString(3)+ "\n" );
 	
 				}
 			}
