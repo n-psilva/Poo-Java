@@ -6,16 +6,27 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.VooController;
+import dao.AeroportoDAO;
+import dao.AviaoDAO;
+import dao.VooDAO;
+import model.Voo;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 
 public class TelaInicial extends JFrame {
 
 	private JPanel contentPane;
-
+ 
 	/**
 	 * Launch the application.
 	 */
@@ -63,7 +74,7 @@ public class TelaInicial extends JFrame {
 		
 		
 		JPanel panelVoo = new JPanel();
-		panelVoo.setBounds(10, 90, 111, 120);
+		panelVoo.setBounds(10, 90, 111, 152);
 		contentPane.add(panelVoo);
 		panelVoo.setLayout(null);
 		panelVoo.setVisible(false);
@@ -99,9 +110,23 @@ public class TelaInicial extends JFrame {
 		btnCancelVoo.setBounds(10, 80, 91, 23);
 		panelVoo.add(btnCancelVoo);
 		
+		JButton btnImpVoo = new JButton("Imprimir");
+		btnImpVoo.setBounds(10, 114, 89, 23);
+		panelVoo.add(btnImpVoo);
+		btnImpVoo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				VooDAO voo = new VooDAO();
+				voo.readAll();
+				
+				
+			}
+		});
+		
 		JPanel panelAero = new JPanel();
 		panelAero.setLayout(null);
-		panelAero.setBounds(158, 90, 105, 120);
+		panelAero.setBounds(158, 90, 105, 152);
 		contentPane.add(panelAero);
 		panelAero.setVisible(false);
 		
@@ -139,9 +164,20 @@ public class TelaInicial extends JFrame {
 		btnNovoAero.setBounds(10, 11, 91, 23);
 		panelAero.add(btnNovoAero);
 		
+		JButton btnImpAero = new JButton("Imprimir");
+		btnImpAero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				AeroportoDAO aero = new AeroportoDAO();
+				aero.readAll();
+			}
+		});
+		btnImpAero.setBounds(10, 114, 89, 23);
+		panelAero.add(btnImpAero);
+		
 		JPanel panelAviao = new JPanel();
 		panelAviao.setLayout(null);
-		panelAviao.setBounds(303, 90, 105, 120);
+		panelAviao.setBounds(303, 90, 105, 152);
 		contentPane.add(panelAviao);
 		panelAviao.setVisible(false);
 		
@@ -178,12 +214,26 @@ public class TelaInicial extends JFrame {
 		btnNovoAviao.setBounds(10, 11, 91, 23);
 		panelAviao.add(btnNovoAviao);
 		
+		JButton btnImpAvio = new JButton("Imprimir");
+		btnImpAvio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				AviaoDAO aviao = new AviaoDAO();
+				aviao.readAll();
+				
+			}
+		});
+		btnImpAvio.setBounds(10, 114, 89, 23);
+		panelAviao.add(btnImpAvio);
+		
 		
 		JButton btnVoo = new JButton("V\u00F4o");
 		btnVoo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				panelVoo.setVisible(true);
+				panelAero.setVisible(false);
+				panelAviao.setVisible(false);
 			}
 		});
 		btnVoo.setBounds(10, 56, 105, 23);
@@ -195,6 +245,7 @@ public class TelaInicial extends JFrame {
 				
 				panelAero.setVisible(true);
 				panelVoo.setVisible(false);
+				panelAviao.setVisible(false);
 			}
 		});
 		btnAero.setBounds(158, 55, 105, 23);
