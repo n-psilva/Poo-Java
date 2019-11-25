@@ -17,26 +17,13 @@ public class VooController {
 			return 1;
 		}
 		finally{
-			System.out.println("Fim da inserção!");
+			System.out.println("Fim da inserÃ§Ã£o!");
 		}
 			
 	
 	}
 	
-	public List<Voo> readAll(){
-		
-		List<Voo> voos = new ArrayList<>();
-		
-		try{
-			VooDAO dao = new VooDAO();
-			voos = dao.readAll();
-		}
-		finally{
-			System.out.println("Fim da leitura!");
-		}
-		
-		return voos;
-	}
+	
 	
 public int delete(Voo voo){
 		
@@ -59,7 +46,7 @@ public int update(Voo voo){
 		return 1;
 	}
 	finally{
-		System.out.println("Fim da atualização!");
+		System.out.println("Fim da atualizaÃ§Ã£o!");
 	}
 		
 }
