@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
+
+import javax.swing.JOptionPane;
 
 import jdbc.ConnectionFactory;
 import model.Voo;
@@ -52,7 +53,7 @@ public class VooDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
-		String sql = " select IdVoo, Data_Ini_Ag from voo";
+		String sql = " select IdVoo, Data_Ini_Ag, Data_Fim_Ag, Hora_Ini_Ag, Hora_Fim_Ag from voo";
 
 	
 		try{
@@ -60,7 +61,8 @@ public class VooDAO {
 			rs = stmt.executeQuery();
 			
 			while(rs.next()){
-				JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\nData Partida: "+ rs.getString(2)+ "\n" );
+				JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\nData Partida: "+ rs.getString(2)+ "\nData Chegada: "+
+						rs.getString(3) +"\nHora Partida: " + rs.getString(4) +"\nHora Chegada: " + rs.getString(5));
 				
 			}
 		}
