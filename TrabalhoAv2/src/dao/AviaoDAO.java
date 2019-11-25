@@ -45,26 +45,22 @@ public class AviaoDAO {
 		}
 		
 		
-		public List<Aviao> readAll(){
+		public void readAll(){
 			
 			Connection con = ConnectionFactory.getConnection();
 			PreparedStatement stmt = null;
 			ResultSet rs = null;
 			
 			String sql = " select idAviao, Qtd_Vagas from aviao";
-			List<Aviao> avioes = new ArrayList<Aviao>();
+			
 		
 			try{
 				stmt = con.prepareStatement(sql);
 				rs = stmt.executeQuery();
 				
 				while(rs.next()){
-					
-					Aviao aviao = new Aviao();
-					aviao.setIdAviao(rs.getString("idAviao"));
-					aviao.setQtd_vagas(rs.getString("Qtd_Vagas"));
-					
-					avioes.add(aviao);
+					JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\nQTD Vagas: "+ rs.getString(2)+ "\n" );
+				
 				}
 			}
 			catch(SQLException e){
@@ -77,7 +73,7 @@ public class AviaoDAO {
 				
 			}
 			
-			return avioes;
+		
 		
 		}
 		
