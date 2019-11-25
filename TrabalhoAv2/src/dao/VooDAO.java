@@ -46,26 +46,22 @@ public class VooDAO {
 	}
 	
 	
-	public List<Voo> readAll(){
+	public void readAll(){
 		
 		Connection con = ConnectionFactory.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
 		String sql = " select IdVoo, Data_Ini_Ag from voo";
-		List<Voo> voos = new ArrayList<Voo>();
+
 	
 		try{
 			stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			
 			while(rs.next()){
+				JOptionPane.showMessageDialog(null,"Codigo: "+rs.getString(1)+"\nData Partida: "+ rs.getString(2)+ "\n" );
 				
-				Voo voo = new Voo();
-				voo.setIdVoo(rs.getString("IdVoo"));
-				voo.setData_Ini_Ag(rs.getString("Data_Ini_Ag"));
-				
-				voos.add(voo);
 			}
 		}
 		catch(SQLException e){
@@ -78,9 +74,10 @@ public class VooDAO {
 			
 		}
 		
-		return voos;
+	
 	
 	}
+	
 	
 	public void delete(Voo voo){
 		
