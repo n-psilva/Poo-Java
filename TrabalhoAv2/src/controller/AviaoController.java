@@ -19,25 +19,11 @@ public class AviaoController {
 			}
 			
 			finally{
-				System.out.println("Fim da inserção!");
+				System.out.println("Fim da inserÃ§Ã£o!");
 			}
 				
 		}
 		
-		public List<Aviao> readAll(){
-			
-			List<Aviao> aviao = new ArrayList<>();
-			
-			try{
-				AviaoDAO dao = new AviaoDAO();
-				aviao = dao.readAll();
-			}
-			finally{
-				System.out.println("Fim da leitura!");
-			}
-			
-			return aviao;
-		}
 		
 	public int delete(Aviao aviao){
 			
@@ -60,7 +46,7 @@ public class AviaoController {
 			return 1;
 		}
 		finally{
-			System.out.println("Fim da atualização!");
+			System.out.println("Fim da atualizaÃ§Ã£o!");
 		}
 			
 	}
