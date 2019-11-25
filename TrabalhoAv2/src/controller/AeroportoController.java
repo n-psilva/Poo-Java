@@ -18,25 +18,12 @@ public class AeroportoController {
 				return 1;
 			}
 			finally{
-				System.out.println("Fim da inserção!");
+				System.out.println("Fim da inserÃ§Ã£o!");
 			}
 				
 		}
 		
-		public List<Aeroporto> readAll(){
-			
-			List<Aeroporto> aeroporto = new ArrayList<>();
-			
-			try{
-				AeroportoDAO dao = new AeroportoDAO();
-				aeroporto = dao.readAll();
-			}
-			finally{
-				System.out.println("Fim da leitura!");
-			}
-			
-			return aeroporto;
-		}
+		
 		
 	public int delete(Aeroporto aeroporto){
 			
@@ -59,7 +46,7 @@ public class AeroportoController {
 			return 1;
 		}
 		finally{
-			System.out.println("Fim da atualização!");
+			System.out.println("Fim da atualizaÃ§Ã£o!");
 		}
 			
 	}
