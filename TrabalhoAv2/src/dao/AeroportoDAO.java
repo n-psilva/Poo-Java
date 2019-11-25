@@ -9,7 +9,7 @@ import java.util.List;
 
 import jdbc.ConnectionFactory;
 import model.Aeroporto;
-
+import javax.swing.JOptionPane;
 
 public class AeroportoDAO {
 		
